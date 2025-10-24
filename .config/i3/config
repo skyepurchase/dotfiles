@@ -43,6 +43,7 @@ exec_always --no-startup-id "$HOME/.config/polybar/launch/launch_polybar.sh"
 # Tray icons
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id flameshot
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -196,6 +197,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Print screen
+bindsym Print exec flameshot gui
 
 # Colours
 set $bg-colour            #6272a4
