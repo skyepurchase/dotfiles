@@ -38,7 +38,7 @@ exec_always --no-startup-id monitor.sh
 
 # Use polybar for status bar
 exec_always --no-startup-id killall -q polybar
-exec_always --no-startup-id "$HOME/.config/polybar/launch/launch_polybar.sh" &
+exec_always --no-startup-id "$HOME/.config/polybar/launch/launch_polybar.sh"
 
 # Tray icons
 exec --no-startup-id nm-applet
