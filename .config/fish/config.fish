@@ -13,6 +13,7 @@ if status is-interactive
 
     ## Latex
     abbr --add pdfcompile 'pdflatex main.tex && biber main && pdflatex main.tex'
+    abbr --add imperial-pdf 'pandoc --citeproc --standalone --template=~/.pandoc/templates/imperial.latex --csl=~/.pandoc/templates/apa.csl --bibliography=~/university/references.bib -M link-bibliography=true -V colorlinks=true -o'
 
     ## Jupynium
     abbr --add token 'jupyter server list | grep "localhost:8888" | sed "s/.*token=\([^/]*\) ::.*/\1/" | fish_clipboard_copy'
