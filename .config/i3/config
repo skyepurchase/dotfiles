@@ -70,11 +70,6 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+s exec --no-startup-id rofi -theme dracula -font "DejaVuSansMono-Bold 18" -show drun
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -170,6 +165,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# reload polybar
+bindsym $mod+p exec launch-polybar.sh
+# reload keyboard
+bindsym $mod+x exec "xmodmap $HOME/.Xmodmap"
+
+# change monitor to laptop screen only
+bindsym $mod+u exec laptop-monitor.sh
+# change monitor to dual screen
+bindsym $mod+i exec imperial-monitor.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
