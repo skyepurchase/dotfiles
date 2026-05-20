@@ -1,0 +1,15 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export CC:clang
+SETUVAR --export CXX:clang\x2b\x2b
+SETUVAR --export EDITOR:/usr/bin/nvim
+SETUVAR --export HDF5_DIR:/home/skye/university/projects/convolutional\x2dwasserstein/petsc/arch\x2dfiredrake\x2ddefault
+SETUVAR --export HDF5_MPI:ON
+SETUVAR --export OMP_NUM_THREADS:1
+SETUVAR --export PETSC_ARCH:arch\x2dfiredrake\x2ddefault
+SETUVAR --export PETSC_DIR:/home/skye/university/projects/convolutional\x2dwasserstein/petsc
+SETUVAR __fish_initialized:4300
+SETUVAR _fisher_dracula_2F_fish_files:\x7e/\x2econfig/fish/themes/Dracula\x20Official\x2etheme\x1e\x7e/\x2econfig/fish/conf\x2ed/dracula\x2efish
+SETUVAR _fisher_plugins:dracula/fish
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR fish_user_paths:/home/skye/\x2ecargo/bin\x1e/home/skye/\x2elocal/bin
