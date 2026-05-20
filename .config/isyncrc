@@ -1,0 +1,39 @@
+IMAPAccount personal
+Host imap.gmail.com
+User skyepurchase@gmail.com
+PassCmd "pass google/skyepurchase@gmail.com"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Subfolders Verbatim
+Path ~/mail/personal/
+Inbox ~/mail/personal/inbox
+
+Channel personal-default
+Far :personal-remote:
+Near :personal-local:
+Patterns * ![Gmail]*
+Create Both
+SyncState *
+Sync All
+
+Channel personal-sent
+Far :personal-remote:"[Gmail]/Sent Mail"
+Near :personal-local:sent
+Create Near
+Sync Pull
+
+Channel personal-trash
+Far :personal-remote:"[Gmail]/Trash"
+Near :personal-local:trash
+Create Near
+Sync Pull
+
+Group personal
+Channel personal-default
+Channel personal-sent
+Channel personal-trash

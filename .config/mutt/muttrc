@@ -1,0 +1,17 @@
+# Basics
+set folder = "~/mail/personal"
+set mbox_type = Maildir
+set spoolfile = +inbox
+set record = +sent
+set header_cache = ~/.cache/mutt
+
+# Sort by threads
+set sort = threads
+# Sort newest first
+set sort_aux = reverse-last-date-received
+set date_format = "%y/%m/%d %I:%M%p"
+
+# Handle HTML
+set mailcap_path = "~/.config/mutt/mailcap"
+auto_view text/html
+alternative_order text/plain text/enriched text/html
