@@ -1,9 +1,36 @@
-# Basics
+# Misc
+set color_directcolor = yes
+
+# Mailboxes
 set folder = "~/mail/personal"
+mailboxes =inbox
+mailboxes =gifts
+mailboxes =sent
 set mbox_type = Maildir
 set spoolfile = +inbox
 set record = +sent
 set header_cache = ~/.cache/mutt
+
+# Sidebar
+set sidebar_visible
+set sidebar_format = "%B%* %F:%N:%S"
+set mail_check_stats
+## Colours
+color sidebar_background #F8F8F2 #282A36
+color sidebar_indicator  #8BE9FD #44475A
+color sidebar_highlight  #F8F8F2 #44475A
+color sidebar_new        #50FA7B #282A36
+color sidebar_unread     #FF5555 #282A36
+color sidebar_flagged    #FFB86C #282A36
+color sidebar_ordinary   #F8F8F2 #282A36
+color sidebar_divider    #F8F8F2 #282A36
+## Keymaps
+bind index,pager \Cj sidebar-next
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cl sidebar-open
+bind index,pager \Cn sidebar-next-new
+bind index,pager \Cp sidebar-prev-new
+bind index,pager \Ct sidebar-toggle-visible
 
 # Sort by threads
 set sort = threads
