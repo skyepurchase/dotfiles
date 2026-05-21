@@ -66,6 +66,23 @@ set date_format = "%y/%m/%d %I:%M%p"
 
 set index_format='%4C %Z %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%m/%y ]> %-15.15L (%?l?%4l&%4c?) %s'
 
+## Colours
+# Defaults
+color index         #6272A4 #282A36 '.*'
+color index_author  #8BE9FD #282A36 '.*'
+color index_number  #6272A4 #282A36 '.*'
+color index_subject #F8F8F2 #282A36 '.*'
+# Flagged mail
+color index         #6272A4 #282A36 '~F'
+color index_author  #FFB86C #282A36 '~F'
+color index_subject #F8F8F2 #282A36 '~F'
+color index_number  #6272A4 #282A36 '~F'
+# New mail
+color index         #50FA7B #282A36 '(~N|~O)'
+color index_author  #50FA7B #282A36 '(~N|~O)'
+color index_subject #50FA7B #282A36 '(~N|~O)'
+color index_number  #50FA7B #282A36 '(~N|~O)'
+
 ## Keymaps
 # Vim bindings
 bind index G last-entry
@@ -104,6 +121,17 @@ bind pager \Cu half-up
 set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+
+## Colours
+color header #F8F8F2 #282A36 ".*"
+color header #8BE9FD #282A36 "^(From)"
+color header #6272A4 #282A36 "^(To)"
+color header #6272A4 #282A36 "^(Date)"
+color header #6272A4 #282A36 "^(CC|BCC)"
+color header #F8F8F2 #282A36 "^(Subject)"
+
+color body #F8F8F2 #282A36 ".*"
+color body #8BE9FD #282A36 "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
 
 # }}}
 
