@@ -1,44 +1,118 @@
-# Misc
-set color_directcolor = yes
+# [Email Folder] {{{
 
-# Mailboxes
+# Email folder
 set folder = "~/mail/personal"
+# Mailboxes to index
 mailboxes =inbox
 mailboxes =gifts
 mailboxes =sent
+# Type of mailbox
 set mbox_type = Maildir
+# Folder to poll for new mail
 set spoolfile = +inbox
+# Folder to save sent messages
 set record = +sent
+# File to cache headers
 set header_cache = ~/.cache/mutt
 
-# Sidebar
+# }}}
+
+# [Sidebar] {{{
+
+# Sidebar default visibility
 set sidebar_visible
+# Format "<Mailbox name>              flagged:unread:total"
 set sidebar_format = "%B%* %F:%N:%S"
 set mail_check_stats
+
 ## Colours
 color sidebar_background #F8F8F2 #282A36
+# Current mailbox
 color sidebar_indicator  #8BE9FD #44475A
+# Hovered mailbox
 color sidebar_highlight  #F8F8F2 #44475A
+# Mailbox with new emails
 color sidebar_new        #50FA7B #282A36
+# Mailbox with unread emails
 color sidebar_unread     #FF5555 #282A36
+# Mailbox with flagged emails
 color sidebar_flagged    #FFB86C #282A36
+# Default mailbox
 color sidebar_ordinary   #F8F8F2 #282A36
+# The divider to the indexer
 color sidebar_divider    #F8F8F2 #282A36
+
 ## Keymaps
+# Vim binding
 bind index,pager \Cj sidebar-next
 bind index,pager \Ck sidebar-prev
 bind index,pager \Cl sidebar-open
+# Skipping
 bind index,pager \Cn sidebar-next-new
 bind index,pager \Cp sidebar-prev-new
+# Toggle visibility
 bind index,pager \Ct sidebar-toggle-visible
 
+# }}}
+
+# [Index View] {{{
+
+## Sorting
 # Sort by threads
 set sort = threads
 # Sort newest first
 set sort_aux = reverse-last-date-received
 set date_format = "%y/%m/%d %I:%M%p"
 
-# Handle HTML
+set index_format='%4C %Z %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%m/%y ]> %-15.15L (%?l?%4l&%4c?) %s'
+
+## Keymaps
+# Vim bindings
+bind index G last-entry
+bind index g noop
+bind index gg first-entry
+bind index l display-message
+bind index \Cd noop
+# Sadly no repeat function
+macro index \Cd "<next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted>"
+macro index \Cu "<previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted>"
+
+# }}}
+
+# [Mail View] {{{
+
+## Misc
+# Don't show '+' on wraps
+set markers = no
+# Wrap on 78 lines
+set wrap = 78
+set pager_stop = yes
+
+## Keybindings
+bind pager r reply
+bind pager R group-reply
+# Vim bindings
+bind pager g noop
+bind pager G bottom
+bind pager gg top
+bind pager j next-line
+bind pager k previous-line
+bind pager h exit
+bind pager \Cd noop
+macro pager \Cd "<next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line>"
+macro pager \Cu "<previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line>"
+
+## HTML emails
 set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+
+# }}}
+
+# [Misc] {{{
+
+set color_directcolor = yes
+set abort_key = "<Esc>"
+set realname = "Skye Purchase"
+
+# }}}
