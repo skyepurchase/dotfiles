@@ -20,7 +20,7 @@ set header_cache = ~/.cache/mutt
 # [Sidebar] {{{
 
 # Sidebar default visibility
-set sidebar_visible
+set sidebar_visible = no
 # Format "<Mailbox name>              flagged:unread:total"
 set sidebar_format = "%B%* %F:%N:%S"
 set mail_check_stats
@@ -72,7 +72,6 @@ bind index G last-entry
 bind index g noop
 bind index gg first-entry
 bind index l display-message
-bind index \Cd noop
 # Sadly no repeat function
 macro index \Cd "<next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted><next-undeleted>"
 macro index \Cu "<previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted><previous-undeleted>"
@@ -92,21 +91,24 @@ set pager_stop = yes
 bind pager r reply
 bind pager R group-reply
 # Vim bindings
-bind pager g noop
 bind pager G bottom
+bind pager g noop
 bind pager gg top
 bind pager j next-line
 bind pager k previous-line
 bind pager h exit
-bind pager \Cd noop
-macro pager \Cd "<next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line><next-line>"
-macro pager \Cu "<previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line><previous-line>"
+bind pager \Cd half-down
+bind pager \Cu half-up
 
 ## HTML emails
 set mailcap_path = "~/.config/mutt/mailcap"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
+# }}}
+
+# [Mutual keybinds] {{{
+bind index,pager w sync-mailbox
 # }}}
 
 # [Misc] {{{
